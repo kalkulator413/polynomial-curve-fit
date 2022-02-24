@@ -2,7 +2,7 @@ from Point import Point
 import numpy as np
 
 
-# TODO: maybe make it so 0 terms aren't displayed
+# TODO: maybe make it so 0 terms aren't displayed, add min/max methods
 class Polynomial:
     """
     A type to hold polynomial equations
