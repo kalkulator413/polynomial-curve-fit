@@ -33,6 +33,22 @@ class Polynomial:
     def __eq__(self, obj):
         return self.coeffs == obj.coeffs
 
+    def polynomial_sum(self, poly_2):
+        """
+        
+        Returns a sum of two polynomials
+        """
+        bigger_polynomial = max(self, poly_2, key=lambda x:len(x.coeffs))
+        smaller_polynomial = min(self, poly_2, key=lambda x:len(x.coeffs))
+
+        result = []
+        for i in range(1, len(smaller_polynomial.coeffs) + 1):
+            result.insert(0, bigger_polynomial.coeffs[-i] + smaller_polynomial.coeffs[-i])
+        for i in range(len(smaller_polynomial.coeffs) + 1, len(bigger_polynomial.coeffs) + 1):
+            result.insert(0, bigger_polynomial.coeffs[-i])
+
+        return Polynomial(coeffs=result)
+    
     def get_derivative(self):
         """
 
